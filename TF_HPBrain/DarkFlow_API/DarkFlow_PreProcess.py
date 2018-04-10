@@ -133,7 +133,8 @@ processed = tfnet.framework.postprocess(net_out, img, False)
 ###############
 # Boxes Info  #
 ###############
-boxes = tfnet.framework.findboxes(net_out)
+out = tfnet.sess.run(tfnet.out, feed_dict)[0]
+boxes = tfnet.framework.findboxes(out)
 
 threshold = 0.25
 
@@ -154,9 +155,8 @@ for box in boxes:
             "y": tmpBox[3]}
     })
 #
-boxesInfo  #processed = tfnet.framework.postprocess(net_out, img, False)
+boxesInfo
 #
-#processed = tfnet.framework.postprocess(net_out, img, False)
 
 cv2.imwrite('out_dog.jpg', processed)
 print('Elapsed time = ' + str(timer() - start) + ' s')
