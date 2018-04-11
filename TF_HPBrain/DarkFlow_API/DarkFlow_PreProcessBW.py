@@ -148,7 +148,7 @@ processed = tfnet.framework.postprocess(net_out, img, False)
 out = tfnet.sess.run(tfnet.out, feed_dict)[0]
 boxes = tfnet.framework.findboxes(out)
 
-threshold = 0.25
+threshold = tfnet.FLAGS.threshold
 
 boxesInfo = list()
 #
