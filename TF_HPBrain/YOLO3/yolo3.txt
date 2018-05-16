@@ -1,0 +1,9 @@
+
+print('Found {} boxes for {}'.format(len(out_boxes), 'img'))
+...
+
+print("{}, {}, {}, {}, {}, {}".format(len(out_boxes), label, left, top, right, bottom), file=f)
+
+...
+
+print('Frame Number {}:'.format(cnt - 1))
