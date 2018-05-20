@@ -1,0 +1,21 @@
+results = tfnet.return_predict(frame)
+
+print(results[0])
+print(results[0]['confidence'])
+print(results[0]['label'])
+
+
+for result in results:
+
+    if result['label'] != 'car, 3' and result['label'] != 'truck, 8':
+        continue
+
+    if (result['confidence'] <= 0.4) or (result['label'] != 'car, 3' and result['label'] != 'truck, 8'):
+        continue
+
+    ...
+    ...
+    ...
+
+    print(result['label'])
+
