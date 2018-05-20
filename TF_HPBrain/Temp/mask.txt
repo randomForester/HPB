@@ -1,0 +1,10 @@
+for i in range(n_instances):
+
+    #if ids[i] != 1:
+    if ids[i] != 8 and ids[i] != 1 and ids[i] != 6 and ids[i] != 59:
+        continue
+
+    if (scores[i] <= 0.7) or (ids[i] != 8 and ids[i] != 1 and ids[i] != 6):
+        continue
+
+
