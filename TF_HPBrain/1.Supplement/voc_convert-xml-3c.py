@@ -1,3 +1,19 @@
+'''
+Annotations:
+Annotations/001.xml
+Annotations/002.xml
+.
+.
+Annotations/030.xml
+
+Images:
+JPEGImages/001.jpg
+JPEGImages/002.jpg
+.
+.
+JPEGImages/030.jpg
+'''
+
 import xml.etree.ElementTree as ET
 from os import getcwd
 
