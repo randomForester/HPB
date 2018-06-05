@@ -143,7 +143,7 @@ class YOLO(object):
             if y < 0 :
                 h = h + y
                 y = 0 
-            return_boxs.append([x,y,w,h])
+            #return_boxs.append([x,y,w,h])
             #
 
             label = '{} {:.2f}'.format(predicted_class, score)
@@ -155,7 +155,20 @@ class YOLO(object):
             left = max(0, np.floor(left + 0.5).astype('int32'))
             bottom = min(image.size[1], np.floor(bottom + 0.5).astype('int32'))
             right = min(image.size[0], np.floor(right + 0.5).astype('int32'))
-            print(label, (left, top), (right, bottom))
+            #print(label, (left, top), (right, bottom))
+
+            ww = int(right - left)
+            hh = int(bottom - top)
+
+            if left < 0 :
+                ww = ww + left
+                left = 0
+            if top < 0 :
+                hh = hh + top
+                top = 0 
+            return_boxs.append([left,top,ww,hh])
+            
+            print('{} {} {} {} {} {} {} {}'.format(x, left, y, top, w, ww, h, hh))
 
             if top - label_size[1] >= 0:
                 text_origin = np.array([left, top - label_size[1]])
@@ -174,7 +187,7 @@ class YOLO(object):
             del draw
 
         end = timer()
-        print(end - start)
+        #print(end - start)
         #return image
         return return_boxs
 
